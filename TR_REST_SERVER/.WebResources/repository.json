@@ -1,7 +1,17 @@
 {
-    "records": [],
-    "resources": [{
-        "location": "Service Descriptors/tr_rest_server.customerinfo-customerinfo.json",
-        "type": "generated"
-    }]
+    "records": [{
+        "name": "Cloud",
+        "items": [],
+        "url": "https://integration.cloud.tibco.com:443"
+    }],
+    "resources": [
+        {
+            "location": "Service Descriptors/tr_rest_server.customerinfo-customerinfo.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/tr_rest_server.updatecustinfo-updatecustinfo.json",
+            "type": "generated"
+        }
+    ]
 }

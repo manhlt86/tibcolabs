@@ -21,4 +21,27 @@
     <element name="CustomerInfoReq" type="tns:CustomerInfoReq"></element>
 
     <element name="CustomerInforRes" type="tns:CustomerInfoRes"></element>
+
+    <complexType name="UpdateCustInfoReq">
+    	<sequence>
+    		<element name="CustNo" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="CustName" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="CustAddress" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="Status" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="CustType" type="string" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="UpdateCustInfoRes">
+    	<sequence>
+    		<element name="Status" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="Message" type="string" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="UpdateCustInfoReq" type="tns:UpdateCustInfoReq"></element>
+
+    <element name="UpdateCustInfoRes" type="tns:UpdateCustInfoRes"></element>
 </schema>

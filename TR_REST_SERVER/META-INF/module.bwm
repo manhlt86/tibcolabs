@@ -12,6 +12,18 @@
     </scaext:binding>
     <scact:bindingAdjunct xmi:id="_h2ku8QLzEe6N_sAmelEjlw" bindingName="RestService"/>
   </sca:service>
+  <sca:service xmi:id="_CqkRkAOFEe6x2OyzCsBCWw" name="updatecustinfo" promote="Componentupdatecustinfo/updatecustinfo">
+    <sca:interface.wsdl xmi:id="_CqrmUAOFEe6x2OyzCsBCWw" interface="http://xmlns.example.com/20230605164043PLT#wsdl.interface(updatecustinfo)" scaext:wsdlLocation="../Processes/tr_rest_server/updatecustinfo.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_Cqv3wAOFEe6x2OyzCsBCWw" name="RestService1" path="/updatecustinfo" docBasePath="http://localhost:7777/TR_REST_SERVER" docResourcePath="updatecustinfo" basePath="/" connector="tr_rest_server.customerinfo" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/tr_rest_server.updatecustinfo-updatecustinfo.json">
+      <operation xmi:id="_CqxF4AOFEe6x2OyzCsBCWw" operationName="post" nickname="post-updatecustinfo" httpMethod="POST" notes="postUpdatecustinfo" responseStyle="element" requestStyle="element" outputPartName="response">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_CqziIAOFEe6x2OyzCsBCWw"/>
+      <advancedConfig xmi:id="_Cqv3wQOFEe6x2OyzCsBCWw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_CqxF4QOFEe6x2OyzCsBCWw" bindingName="RestService1"/>
+  </sca:service>
   <sca:property xmi:id="_mRFA0ALyEe6N_sAmelEjlw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_mRNjsALyEe6N_sAmelEjlw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_mRP_8ALyEe6N_sAmelEjlw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
@@ -26,6 +38,12 @@
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_h2MUcQLzEe6N_sAmelEjlw" processName="tr_rest_server.customerinfo"/>
     <sca:service xmi:id="_h2PXwALzEe6N_sAmelEjlw" name="customerinfo">
       <sca:interface.wsdl xmi:id="_h2PXwQLzEe6N_sAmelEjlw" interface="http://xmlns.example.com/20230604231906PLT#wsdl.interface(customerinfo)" scaext:wsdlLocation="../Processes/tr_rest_server/customerinfo.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_Cqc80AOFEe6x2OyzCsBCWw" name="Componentupdatecustinfo" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_Cqc80QOFEe6x2OyzCsBCWw" processName="tr_rest_server.updatecustinfo"/>
+    <sca:service xmi:id="_CqgAIAOFEe6x2OyzCsBCWw" name="updatecustinfo">
+      <sca:interface.wsdl xmi:id="_CqhOQAOFEe6x2OyzCsBCWw" interface="http://xmlns.example.com/20230605164043PLT#wsdl.interface(updatecustinfo)" scaext:wsdlLocation="../Processes/tr_rest_server/updatecustinfo.bwp"/>
     </sca:service>
   </sca:component>
 </sca:composite>

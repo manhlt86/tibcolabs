@@ -1,0 +1,72 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "updatecustinfo",
+    "description" : "updatecustinfo service"
+  },
+  "host" : "localhost:8123",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/updatecustinfo" : {
+      "post" : {
+        "summary" : "postUpdatecustinfo",
+        "description" : "postUpdatecustinfo",
+        "operationId" : "post-updatecustinfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/UpdateCustInfoReq"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a UpdateCustInfoRes to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/UpdateCustInfoRes"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "UpdateCustInfoRes" : {
+      "type" : "object",
+      "properties" : {
+        "Status" : {
+          "type" : "string"
+        },
+        "Message" : {
+          "type" : "string"
+        }
+      }
+    },
+    "UpdateCustInfoReq" : {
+      "type" : "object",
+      "properties" : {
+        "CustNo" : {
+          "type" : "string"
+        },
+        "CustName" : {
+          "type" : "string"
+        },
+        "CustAddress" : {
+          "type" : "string"
+        },
+        "Status" : {
+          "type" : "string"
+        },
+        "CustType" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
