@@ -1,0 +1,7 @@
+{
+    "records": [],
+    "resources": [{
+        "location": "Service Descriptors/tr_rest_server.customerinfo-customerinfo.json",
+        "type": "generated"
+    }]
+}

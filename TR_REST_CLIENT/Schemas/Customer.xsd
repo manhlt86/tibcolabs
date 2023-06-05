@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Customer" xmlns:tns="http://www.example.org/Customer" elementFormDefault="qualified">
+
+    <complexType name="CustomerReq">
+    	<sequence>
+    		<element name="CustomerNo" type="string" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="CustomerReq" type="tns:CustomerReq"></element>
+</schema>

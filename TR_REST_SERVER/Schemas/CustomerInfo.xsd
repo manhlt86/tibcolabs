@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/CustomerInfo" xmlns:tns="http://www.example.org/CustomerInfo" elementFormDefault="qualified">
+
+    <complexType name="CustomerInfoReq">
+    	<sequence>
+    		<element name="CustomerNo" type="string" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="CustomerInfoRes">
+    	<sequence>
+    		<element name="CustomerNo" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="CustomerName" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="CustomerAddress" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="Status" type="string" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="CustomerInfoReq" type="tns:CustomerInfoReq"></element>
+
+    <element name="CustomerInforRes" type="tns:CustomerInfoRes"></element>
+</schema>

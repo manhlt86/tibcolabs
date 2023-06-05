@@ -1,0 +1,66 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "customerinfo",
+    "description" : "customerinfo service"
+  },
+  "host" : "localhost:8123",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/customerinfo" : {
+      "post" : {
+        "summary" : "postCustomerinfo",
+        "description" : "postCustomerinfo",
+        "operationId" : "post-customerinfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/CustomerInfoReq"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a CustomerInforRes to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/CustomerInforRes"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "CustomerInfoReq" : {
+      "type" : "object",
+      "properties" : {
+        "CustomerNo" : {
+          "type" : "string"
+        }
+      }
+    },
+    "CustomerInforRes" : {
+      "type" : "object",
+      "properties" : {
+        "CustomerNo" : {
+          "type" : "string"
+        },
+        "CustomerName" : {
+          "type" : "string"
+        },
+        "CustomerAddress" : {
+          "type" : "string"
+        },
+        "Status" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

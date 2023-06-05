@@ -1,0 +1,5 @@
+{"records": [{
+    "jsonSchemaLocation": "/TR_REST_SERVER/Service Descriptors/tr_rest_server.customerinfo-customerinfo.json",
+    "conversionType": "linked",
+    "xsdSchemaTargetNamespace": "http://www.example.org/CustomerInfo"
+}]}
