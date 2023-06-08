@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Account" xmlns:tns="http://www.example.org/Account" elementFormDefault="qualified">
+
+    <complexType name="AccountType">
+    	<sequence>
+    		<element name="Type" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="Desc" type="string" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="AccountInqReqType">
+    	<sequence>
+    		<element name="AccNo" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="AccType" type="tns:AccountType" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="AccountInqResType">
+    	<sequence>
+    		<element name="AccNo" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="AccType" type="tns:AccountType" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="Balance" type="double" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="Status" type="string" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="AccountInqReq" type="tns:AccountInqReqType"></element>
+
+    <element name="AccountInqRes" type="tns:AccountInqResType"></element>
+</schema>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:jms="http://www.tibco.com/namespaces/ws/2004/soap/binding/JMS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://www.tibco.com/Account/" xmlns:tns0="http://www.example.org/Account" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Account" targetNamespace="http://www.tibco.com/Account/" tibex:src="file:/D:/Deploy/tmp/Account_Concrete.wsdl">
+  <wsdl:types>
+    <xsd:schema xmlns:tns="http://www.example.org/Account" elementFormDefault="qualified" targetNamespace="http://www.example.org/Account">
+      <xsd:complexType name="AccountType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Type" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Desc" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccountInqReqType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AccNo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AccType" type="tns:AccountType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccountInqResType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AccNo" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AccType" type="tns:AccountType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Balance" type="xsd:double"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Status" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AccountInqReq" type="tns:AccountInqReqType"/>
+      <xsd:element name="AccountInqRes" type="tns:AccountInqResType"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="InquiryAccountRequest">
+    <wsdl:part element="tns0:AccountInqReq" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="InquiryAccountResponse">
+    <wsdl:part element="tns0:AccountInqRes" name="response"/>
+  </wsdl:message>
+  <wsdl:portType name="Account">
+    <wsdl:operation name="InquiryAccount">
+      <wsdl:input message="tns:InquiryAccountRequest"/>
+      <wsdl:output message="tns:InquiryAccountResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPServiceBinding" type="tns:Account">
+    <soap:binding style="document" transport="http://www.tibco.com/namespaces/ws/2004/soap/binding/JMS"/>
+    <jms:binding messageFormat="bytes"/>
+    <wsdl:operation name="InquiryAccount">
+      <soap:operation soapAction="InquiryAccount" style="document"/>
+      <wsdl:input>
+        <soap:body parts="request" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="response" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Account">
+    <wsdl:port binding="tns:SOAPServiceBinding" name="AccountSOAP">
+      <soap:address location=""/>
+      <jms:connectionFactory/>
+      <jms:targetAddress destination="queue">tr_soap</jms:targetAddress>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

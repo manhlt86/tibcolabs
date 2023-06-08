@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tibco.com/Account/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Account" targetNamespace="http://www.tibco.com/Account/" xmlns:xsd1="http://www.example.org/Account">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.tibco.com/Account/">
+      <xsd:element name="InquiryAccount">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InquiryAccountResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import namespace="http://www.example.org/Account"
+    		schemaLocation="../Schemas/Account.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="InquiryAccountRequest">
+    <wsdl:part element="xsd1:AccountInqReq" name="request"/>
+  </wsdl:message>
+  <wsdl:message name="InquiryAccountResponse">
+    <wsdl:part element="xsd1:AccountInqRes" name="response"/>
+  </wsdl:message>
+  <wsdl:portType name="Account">
+    <wsdl:operation name="InquiryAccount">
+      <wsdl:input message="tns:InquiryAccountRequest"/>
+      <wsdl:output message="tns:InquiryAccountResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountSOAP" type="tns:Account">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="InquiryAccount">
+      <soap:operation soapAction="http://www.tibco.com/Account/InquiryAccount"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Account">
+    <wsdl:port binding="tns:AccountSOAP" name="AccountSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

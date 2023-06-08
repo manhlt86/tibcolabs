@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Account="http://www.tibco.com/Account/" xmlns:Account_1="http://www.example.org/Account" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_tBUE0AO-Ee6uG49a2nmJfA" targetNamespace="http://tns.tibco.com/bw/composite/TR_SOAP_SERVER" name="TR_SOAP_SERVER" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_ZqyqIAPAEe6uG49a2nmJfA" name="Account" promote="ComponentAccount/Account">
+    <sca:interface.wsdl xmi:id="_Zq2UgAPAEe6uG49a2nmJfA" interface="http://www.tibco.com/Account/#wsdl.interface(Account)" scaext:wsdlLocation="../Service%20Descriptors/Account.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_Zq9pQAPAEe6uG49a2nmJfA" name="SOAPServiceBinding" targetNamespace="http://www.tibco.com/7d907f008ef748e6bd68646d53630f0f/SOAPServiceBinding" portTypeQName="Account:Account" transportBindingType="JMS" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/TR_SOAP_SERVER/Service%20Descriptors/Account.wsdl">
+      <bindingType xmi:id="_ZrGMIAPAEe6uG49a2nmJfA"/>
+      <inboundConfiguration xsi:type="axis2:JMSInboundTransportConfiguration" xmi:id="_XOxeMAPBEe6uG49a2nmJfA" jmsResource="tr_soap_server.JMSConnectionResource" destination="tr_soap"/>
+      <operationConfiguration xmi:id="_ZrHaQAPAEe6uG49a2nmJfA" operationName="InquiryAccount" action="InquiryAccount" actionNeeded="true">
+        <bindingType xmi:id="_ZrHaQQPAEe6uG49a2nmJfA"/>
+        <messageConfiguration xmi:id="_ZrHaQgPAEe6uG49a2nmJfA" messageQName="Account:InquiryAccountRequest" wsdlLocation="platform:/resource/TR_SOAP_SERVER/Service%20Descriptors/Account.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_ZrHaQwPAEe6uG49a2nmJfA" partName="request" partElementName="Account_1:AccountInqReq"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_ZrHaRAPAEe6uG49a2nmJfA" messageQName="Account:InquiryAccountResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/TR_SOAP_SERVER/Service%20Descriptors/Account.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_ZrHaRQPAEe6uG49a2nmJfA" partName="response" partElementName="Account_1:AccountInqRes"/>
+        </messageConfiguration>
+        <context xmi:id="_ZrIBUAPAEe6uG49a2nmJfA">
+          <inputMapping xmi:id="_ZrIBUQPAEe6uG49a2nmJfA"/>
+          <outputMapping xmi:id="_ZrIoYAPAEe6uG49a2nmJfA" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_ZrIoYQPAEe6uG49a2nmJfA" bindingName="SOAPServiceBinding"/>
+  </sca:service>
+  <sca:property xmi:id="_tF4bwAO-Ee6uG49a2nmJfA" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tF97UAO-Ee6uG49a2nmJfA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tGAXkAO-Ee6uG49a2nmJfA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tGCz0AO-Ee6uG49a2nmJfA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tGEB8AO-Ee6uG49a2nmJfA" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tGFQEAO-Ee6uG49a2nmJfA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tGHFQAO-Ee6uG49a2nmJfA" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tGJhgAO-Ee6uG49a2nmJfA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tGLWsAO-Ee6uG49a2nmJfA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_ZqsjgAPAEe6uG49a2nmJfA" name="ComponentAccount" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_ZqsjgQPAEe6uG49a2nmJfA" processName="tr_soap_server.Account"/>
+    <sca:service xmi:id="_Zqu_wAPAEe6uG49a2nmJfA" name="Account">
+      <sca:interface.wsdl xmi:id="_Zqw08APAEe6uG49a2nmJfA" interface="http://www.tibco.com/Account/#wsdl.interface(Account)" scaext:wsdlLocation="../Service%20Descriptors/Account.wsdl"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>
